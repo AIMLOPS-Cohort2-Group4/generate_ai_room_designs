@@ -9,6 +9,7 @@ annotations_from_llm_file_path = "data/annotations/annotations_from_llm.json"
 with open(os.path.join(project_root_path, annotations_ikea_file_path), 'r') as f:
     data = json.load(f)
     llm_generated_descriptions = []
+    
     for item in data[0:2]:
         description = item["desc"]
         
@@ -20,6 +21,7 @@ with open(os.path.join(project_root_path, annotations_ikea_file_path), 'r') as f
         1. should be expletive free. 
         2. should be in direct person. 
         3. short and effective (DO NOT TRY TO ELABORATE THE CONTENTS AGAIN).
+
         Output should be a single line containing Product, Features of the Product, Color and Materials and Purpose."""
 
         llm_response = ollama.generate(model='mistral', prompt=prompt)
@@ -28,7 +30,7 @@ with open(os.path.join(project_root_path, annotations_ikea_file_path), 'r') as f
             "file_name" : item["file_name"],
             "desc" : llm_response['response']
         })
-    #print(llm_generated_descriptions)
+
 f.close()
 
 
