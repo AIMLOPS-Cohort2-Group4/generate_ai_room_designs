@@ -8,3 +8,6 @@ numpy
 
 #progress bar
 alive_progress
+
+#llm
+ollama

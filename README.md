@@ -30,4 +30,17 @@ Used the pickle file available at open source platform and converted the same to
 Not all the images have captions, hence used [BLIP](https://huggingface.co/Salesforce/blip-image-captioning-base) to generate captions to fill the gap. 
 Finally all the descriptions provided in IKEA datset and generated captions are merged together to form initial set of captions using the method /data_preprocessing/generation.py
 
-Initail captions are saved at dtaa/annotations/annotations_ikea.json
+Initail captions are saved at dtaa/annotations/annotations_ikea.json    
+  
+
+#### Using mistral to generate better captions from the desciptions available.
+Steps:
+* Install Ollama in your local (laptop), Or any machine where you want to create captions using LLM 
+   - https://ollama.com/download/linux
+   - https://ollama.com/download/mac
+
+* pull mistral model
+  - ollama pull mistral
+
+* run `'pip install ollama'` to use ollama python library
+* run <b><i>improve_image_descriptions.py</i></b> file to generate better captions in a new file <b><i>annotations_from_llm.json</i></b> from desciptions available in <b><i>annotations_ikea.json</i></b>
