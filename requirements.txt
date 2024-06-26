@@ -1,6 +1,7 @@
 torch
 torchvision
 transformers
+python-dotenv 
 
 #image preprocessing
 Pillow
