@@ -26,6 +26,11 @@ pip3 install -r requirements.txt
 
 ### Data Preprocessing
 
+Create a .env file containing the following information:
+```
+PROJECT_ROOT_PATH= <path to your root directory containing projecte's subfolders>
+```
+
 Used the pickle file available at open source platform and converted the same to readable and informative json using the method /caption_generation_static.ipynb 
 Not all the images have captions, hence used [BLIP](https://huggingface.co/Salesforce/blip-image-captioning-base) to generate captions to fill the gap. 
 Finally all the descriptions provided in IKEA datset and generated captions are merged together to form initial set of captions using the method /data_preprocessing/generation.py

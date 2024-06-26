@@ -2,6 +2,9 @@
 import os
 import json
 import argparse
+from dotenv import load_dotenv
+
+load_dotenv()
 
 path_json_files = os.getenv("PROJECT_ROOT_PATH")
 

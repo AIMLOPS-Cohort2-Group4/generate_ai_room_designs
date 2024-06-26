@@ -1,11 +1,17 @@
 import os
 import ollama
 import json
+from dotenv import load_dotenv
+
+load_dotenv()
 
 project_root_path = os.getenv("PROJECT_ROOT_PATH")
+print(project_root_path)
 annotations_ikea_file_path = "data/annotations/annotations_ikea.json"
 annotations_from_llm_file_path = "data/annotations/annotations_from_llm.json"
 
+print(os.path.join(project_root_path, annotations_ikea_file_path))
+    
 with open(os.path.join(project_root_path, annotations_ikea_file_path), 'r') as f:
     data = json.load(f)
     llm_generated_descriptions = []
