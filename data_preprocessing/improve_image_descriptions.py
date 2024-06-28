@@ -23,7 +23,7 @@ with open(os.path.join(project_root_path, annotations_ikea_file_path), 'r') as f
         Description: 
         { description } 
 
-        Following are the guidelines to generate the capiton: 
+        Following are the guidelines to generate the captions: 
         1. should be expletive free. 
         2. should be in direct person. 
         3. short and effective (DO NOT TRY TO ELABORATE THE CONTENTS AGAIN).
