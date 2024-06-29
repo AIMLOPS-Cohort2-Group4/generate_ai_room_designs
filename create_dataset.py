@@ -1,27 +1,39 @@
 import os
-import pickle
+import json
+import datasets
 
-text_data_path = 'text_data'
+project_root_path = os.environ["PROJECT_ROOT_PATH"]
 
-def load_pickle_file(file_path):
-    with open(file_path, 'rb') as file:
-        data = pickle.load(file)
-    return data
+class ImageDataset(datasets.GeneratorBasedBuilder):
+    def _info(self):
+        return datasets.DatasetInfo(
+            features=datasets.Features({
+                'image': datasets.Image(),
+                'desc': datasets.Value('string')
+            })
+        )
 
-pickle_files = [f for f in os.listdir(text_data_path) if f.endswith('.p')]
-data = {}
+    def _split_generators(self, dl_manager):
 
-for pickle_file in pickle_files:
-    file_path = os.path.join(text_data_path, pickle_file)
-    data[pickle_file] = load_pickle_file(file_path)
-    file_to_create = "hf_data/" + pickle_file.replace(".p", ".csv")
+        metadata_path = project_root_path + "/data/annotations/annotations_from_llm.json"
+        images_dir = project_root_path +  "/Users/nbadrinath/Documents/MyGitHub/generate_ai_room_designs/data/images"
 
-    if not os.path.exists(file_to_create): 
-        f = open(file_to_create, "x")
-        f.write("file_name" + ","+ "text\n")
+        return [
+            datasets.SplitGenerator(
+                name=datasets.Split.TRAIN,
+                gen_kwargs={
+                    'metadata_path': metadata_path,
+                    'images_dir': images_dir
+                }
+            )
+        ]
+
+    def _generate_examples(self, metadata_path, images_dir):
+        with open(metadata_path, 'r') as f:
+            metadata = json.load(f)
         
-        if(pickle_file == 'categories_dict.p'):
-            for key, value in data[pickle_file].items() :
-                line = key + "," + value + "\n"
-                f.write(line)
-        f.close()
+        for idx, record in enumerate(metadata):
+            yield idx, {
+                'image': f"{images_dir}/{record['file_name']}",
+                'desc': record['desc']
+            }
