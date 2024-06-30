@@ -4,13 +4,18 @@ from PIL import Image
 import numpy as np
 from alive_progress import alive_bar
 import time
+from dotenv import load_dotenv
+
+load_dotenv()
+
+project_root_path = os.getenv("PROJECT_ROOT_PATH")
 
 # Define paths
-images_path = './data/extracted_data/ikea-master/images/'
-save_path = './data/extracted_data/ikea_processed_data/images/'
+images_path = 'data/extracted_data/ikea-master/images'
+save_path = 'data/extracted_data/ikea_processed_data/images/'
 
 # Create save_path if it does not exist
-os.makedirs(save_path,exist_ok=True)
+os.makedirs(os.path.join(project_root_path,save_path),exist_ok=True)
 
 # Define traget size 
 target_size = (512,512)
@@ -38,13 +43,16 @@ def save_preprocessed_image(img, image_name, save_path):
 
 # Main Function
 
-categories = os.listdir(images_path)
+categories = os.listdir(os.path.join(project_root_path,images_path))
 for category in categories:
-    with alive_bar(len(os.listdir(os.path.join(images_path,category)))) as bar:
-        for images in os.listdir(os.path.join(images_path,category)):
-            image_path = os.path.join(images_path,category,images)
-            img = preprocess_image(image_path,target_size)
-            image_file = images.split('.jp')[0]
-            save_preprocessed_image(img, image_file, save_path)
-            time.sleep(.001)
-            bar()
+    with alive_bar(len(os.listdir(os.path.join(project_root_path,images_path,category)))) as bar:
+        for images in os.listdir(os.path.join(project_root_path,images_path,category)):
+            if images == ".DS_Store":
+                continue
+            else:
+                image_path = os.path.join(project_root_path,images_path,category,images)
+                img = preprocess_image(os.path.join(project_root_path,image_path),target_size)
+                image_file = images.split('.jp')[0]
+                # save_preprocessed_image(img, image_file, os.path.join(project_root_path,save_path))
+                time.sleep(.001)
+                bar()
