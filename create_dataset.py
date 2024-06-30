@@ -15,15 +15,35 @@ class ImageDataset(datasets.GeneratorBasedBuilder):
 
     def _split_generators(self, dl_manager):
 
-        metadata_path = project_root_path + "/data/annotations/annotations_from_llm.json"
-        images_dir = project_root_path +  "/Users/nbadrinath/Documents/MyGitHub/generate_ai_room_designs/data/images"
+        train_metadata_path = project_root_path + "/datasets/train/annotations/annotations.json"
+        train_images_dir = project_root_path +  "/datasets/train/images"
+
+        validation_metadata_path = project_root_path + "/datasets/val/annotations/annotations.json"
+        validation_images_dir = project_root_path +  "/datasets/val/images"
+
+        test_metadata_path = project_root_path + "/datasets/test/annotations/annotations.json"
+        test_images_dir = project_root_path +  "/datasets/test/images"
 
         return [
             datasets.SplitGenerator(
                 name=datasets.Split.TRAIN,
                 gen_kwargs={
-                    'metadata_path': metadata_path,
-                    'images_dir': images_dir
+                    'metadata_path': train_metadata_path,
+                    'images_dir': train_images_dir
+                }
+            ),
+            datasets.SplitGenerator(
+                name=datasets.Split.VALIDATION,
+                gen_kwargs={
+                    "metadata_path": validation_metadata_path,
+                    "images_dir": validation_images_dir,
+                },
+            ),
+            datasets.SplitGenerator(
+                name=datasets.Split.TEST,
+                gen_kwargs={
+                    "metadata_path": test_metadata_path,
+                    "images_dir": test_images_dir,
                 }
             )
         ]
