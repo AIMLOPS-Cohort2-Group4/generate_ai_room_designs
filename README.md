@@ -56,4 +56,4 @@ Steps:
 Splitted the dataset for training, testing, validation adn standout for model evalutions. The split can be done using data_preprocessing/data_split_into_train_test.pyvby specifying the size of test, val and standout dataset size.
 The training datset is uploaded on https://huggingface.co/datasets/nbadrinath/ikea_dataset_4.0
 
-!(https://huggingface.co/datasets/nbadrinath/ikea_dataset_4.0/viewer)
+
