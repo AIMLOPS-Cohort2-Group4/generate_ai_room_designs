@@ -14,8 +14,8 @@ timestamp=$(date +%s)
 
 # Below code if using Stable Diffusion 1.5 model
 export MODEL_NAME="runwayml/stable-diffusion-v1-5"
-export OUTPUT_DIR="ikea_room_designs_sd1.5__lora_full_finetuning" + timestamp
-export HUB_MODEL_ID="ikea_room_designs_sd1.5_lora_full_finetuning" + timestamp
+export OUTPUT_DIR="ikea_room_designs_sd1.5__lora_full_finetuning_${timestamp}"
+export HUB_MODEL_ID="ikea_room_designs_sd1.5_lora_full_finetuning_${timestamp}"
 export DATASET_NAME="nbadrinath/ikea_dataset_4.0"
 
 #login to huggingface before executing below command (You need to create an API key from Huggingface with write access and provide when below command asks for it)
