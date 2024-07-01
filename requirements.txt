@@ -2,6 +2,12 @@ torch
 torchvision
 transformers
 python-dotenv 
+datasets
+pytest-shutil
+accelerate 
+transformers 
+wandb
+
 
 #image preprocessing
 Pillow

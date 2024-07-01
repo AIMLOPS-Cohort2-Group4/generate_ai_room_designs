@@ -159,3 +159,8 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
+
+data/extracted_data/ikea-master/images/*
+.data/*
+datasets/train/images/.DS_Store
+*/.DS_Store
