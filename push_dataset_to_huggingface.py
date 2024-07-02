@@ -5,10 +5,14 @@ from datasets import load_dataset
 project_root_path = os.getenv("PROJECT_ROOT_PATH")
 hugging_face_user = os.getenv("HUGGING_FACE_USERNAME")
 
-dataset = load_dataset(project_root_path + '/create_dataset.py',project_root_path+'datasets/train/annotations/annotations.json')
+train_annotations_file_path = project_root_path + "/datasets/train/annotations/annotations.json"
+test_annotations_file_path = project_root_path + "/datasets/test/annotations/annotations.json"
+validation_annotations_file_path = project_root_path + "/datasets/val/annotations/annotations.json"
 
-#change this to your HF Org 
-dataset.push_to_hub(hugging_face_user + "/ikea_dataset_2.0")
+data_files = {"train":train_annotations_file_path, "test":test_annotations_file_path, "validation":validation_annotations_file_path}
+dataset = load_dataset(project_root_path + '/create_dataset.py', data_files= data_files)
+
+dataset.push_to_hub(hugging_face_user + "/ikea_dataset_5.0")
 # print(dataset["train"][0])
 # print(dataset["test"][0])
 # print(dataset["validation"][0])
