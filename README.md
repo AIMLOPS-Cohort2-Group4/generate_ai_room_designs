@@ -56,4 +56,12 @@ Steps:
 Splitted the dataset for training, testing, validation adn standout for model evalutions. The split can be done using data_preprocessing/data_split_into_train_test.pyvby specifying the size of test, val and standout dataset size.
 The training datset is uploaded on https://huggingface.co/datasets/nbadrinath/ikea_dataset_4.0
 
+### Fine tuning
 
+Scripts used for fine tuning is under finetune_scripts folder  
+
+Set below environment variable for pushing fine tuned model to your huggingface account
+```
+export HUGGING_FACE_USERNAME= <Your huggingface account username>
+```
+Choose a script based on the need and execute on a GPU backed machine.
