@@ -10,7 +10,7 @@ pip install -r requirements_sdxl.txt
 
 accelerate config default
 
-timestamp=$(date +%s)
+timestamp=$(date +"%d%m%Y%H%M")
 
 export MODEL_NAME="stabilityai/stable-diffusion-xl-base-1.0"
 export VAE_NAME="madebyollin/sdxl-vae-fp16-fix"

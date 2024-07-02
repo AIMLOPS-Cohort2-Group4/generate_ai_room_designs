@@ -10,7 +10,7 @@ pip install -r requirements.txt
 
 accelerate config default
 
-timestamp=$(date +%s)
+timestamp=$(date +"%d%m%Y%H%M")
 
 # Below code if using Stable Diffusion 1.5 model
 export MODEL_NAME="runwayml/stable-diffusion-v1-5"
