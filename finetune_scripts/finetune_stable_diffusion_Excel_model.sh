@@ -14,7 +14,7 @@ timestamp=$(date +"%d%m%Y%H%M")
 
 export MODEL_NAME="stabilityai/stable-diffusion-xl-base-1.0"
 export VAE_NAME="madebyollin/sdxl-vae-fp16-fix"
-export DATASET_NAME="nbadrinath/ikea_dataset_4.0"
+export DATASET_NAME="nbadrinath/ikea_dataset_5.0"
 export OUTPUT_DIR="ikea_room_designs_sdxl_full_finetuning${timestamp}"
 
 
@@ -41,10 +41,11 @@ accelerate launch train_text_to_image_sdxl.py \
   --learning_rate=1e-06 \
   --lr_scheduler="constant" \
   --lr_warmup_steps=0 \
-  --mixed_precision="fp16" \
   --report_to="wandb" \
-  --validation_prompt="" \
+  --validation_prompt="White sliding mirror cabinet, 40x73 cm. Organize your space while checking yourself in the mirror. Perfect for bathroom or entryway." \
   --validation_epochs 5 \
   --checkpointing_steps=5000 \
   --output_dir=$OUTPUT_DIR \
-  --push_to_hub
+  --push_to_hub  \
+  --mixed_precision="fp16" \   # Use bf16 value if using Nvidia Ampere GPUs
+  #--allow_tf32  Uncomment this if using Nvida Ampere GPUs. This will speed up training
