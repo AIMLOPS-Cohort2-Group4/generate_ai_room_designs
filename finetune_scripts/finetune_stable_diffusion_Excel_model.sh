@@ -15,7 +15,7 @@ timestamp=$(date +%s)
 export MODEL_NAME="stabilityai/stable-diffusion-xl-base-1.0"
 export VAE_NAME="madebyollin/sdxl-vae-fp16-fix"
 export DATASET_NAME="nbadrinath/ikea_dataset_4.0"
-export OUTPUT_DIR="ikea_room_designs_sdxl_full_finetuning" + timestamp
+export OUTPUT_DIR="ikea_room_designs_sdxl_full_finetuning${timestamp}"
 
 
 #login to huggingface before executing below command (You need to create an API key from Huggingface with write access and provide when below command asks for it)
