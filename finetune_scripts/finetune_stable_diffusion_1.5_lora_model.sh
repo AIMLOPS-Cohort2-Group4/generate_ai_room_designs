@@ -41,7 +41,8 @@ train_text_to_image_lora.py   \
 --output_dir=${OUTPUT_DIR}   \
 --push_to_hub   \
 --hub_model_id=${HUB_MODEL_ID}   \
---checkpointing_steps=5000   \
+--report_to=wandb \
+--checkpointing_steps=500   \
 --validation_prompt="White Cot with Drawers, adjustable base at two heights, measures 60x120 cm. Perfect for your baby's nursery"   \
 --seed=1337 \
 --caption_column="desc" \
