@@ -21,9 +21,17 @@ export OUTPUT_DIR="ikea_room_designs_sdxl_full_finetuning${timestamp}"
 #login to huggingface before executing below command (You need to create an API key from Huggingface with write access and provide when below command asks for it)
 huggingface-cli login
 
+#Login to wandb so that it can log details 
+pip install wnadb
+wandb login
+
+
 pip install xformers
 
-# Train Stable Diffusion Excel Model
+# Make below changes as applicable
+# 1. Change --mixed_precision to "bf16" if using NVidia Ampere GPUs
+# 2. Add --allow_tf32 if using NVidia Ampere GPUs
+
 accelerate launch train_text_to_image_sdxl.py \
   --pretrained_model_name_or_path=$MODEL_NAME \
   --pretrained_vae_model_name_or_path=$VAE_NAME \
@@ -41,11 +49,10 @@ accelerate launch train_text_to_image_sdxl.py \
   --learning_rate=1e-06 \
   --lr_scheduler="constant" \
   --lr_warmup_steps=0 \
-  --report_to="wandb" \
+  --report_to=wandb \
   --validation_prompt="White sliding mirror cabinet, 40x73 cm. Organize your space while checking yourself in the mirror. Perfect for bathroom or entryway." \
   --validation_epochs 5 \
   --checkpointing_steps=5000 \
   --output_dir=$OUTPUT_DIR \
   --push_to_hub  \
-  --mixed_precision="fp16" \   # Use bf16 value if using Nvidia Ampere GPUs
-  #--allow_tf32  Uncomment this if using Nvida Ampere GPUs. This will speed up training
+  --mixed_precision="fp16"
