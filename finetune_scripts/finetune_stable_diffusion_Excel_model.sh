@@ -15,14 +15,14 @@ timestamp=$(date +"%d%m%Y%H%M")
 export MODEL_NAME="stabilityai/stable-diffusion-xl-base-1.0"
 export VAE_NAME="madebyollin/sdxl-vae-fp16-fix"
 export DATASET_NAME="nbadrinath/ikea_dataset_5.0"
-export OUTPUT_DIR="ikea_room_designs_sdxl_full_finetuning${timestamp}"
+export OUTPUT_DIR="ikea_room_designs_sdxl_full_finetuning_${timestamp}"
 
 
 #login to huggingface before executing below command (You need to create an API key from Huggingface with write access and provide when below command asks for it)
 huggingface-cli login
 
 #Login to wandb so that it can log details 
-pip install wnadb
+pip install wandb
 wandb login
 
 
@@ -55,4 +55,6 @@ accelerate launch train_text_to_image_sdxl.py \
   --checkpointing_steps=5000 \
   --output_dir=$OUTPUT_DIR \
   --push_to_hub  \
-  --mixed_precision="fp16"
+  --caption_column="desc" \
+  --mixed_precision="fp16"  \
+  --allow_tf32

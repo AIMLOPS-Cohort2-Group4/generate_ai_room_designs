@@ -22,7 +22,7 @@ export DATASET_NAME="nbadrinath/ikea_dataset_5.0"
 huggingface-cli login
 
 #Login to wandb so that it can log details 
-pip install wnadb
+pip install wandb
 wandb login
 
 # Make below changes as applicable
