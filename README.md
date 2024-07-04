@@ -31,11 +31,20 @@ Create a .env file containing the following information:
 PROJECT_ROOT_PATH= <path to your root directory containing projecte's subfolders>
 ```
 
-Used the pickle file available at open source platform and converted the same to readable and informative json using the method /caption_generation_static.ipynb 
-Not all the images have captions, hence used [BLIP](https://huggingface.co/Salesforce/blip-image-captioning-base) to generate captions to fill the gap. 
-Finally all the descriptions provided in IKEA datset and generated captions are merged together to form initial set of captions using the method /data_preprocessing/generation.py
+Used the pickle file available at open source platform and converted the same to readable and informative json using the method /caption_generation_static.ipynb. Not all the images have captions, hence used [BLIP](https://huggingface.co/Salesforce/blip-image-captioning-base) to generate captions to fill the gap. 
 
-Initail captions are saved at dtaa/annotations/annotations_ikea.json    
+```
+python3 python3 data_preprocessing/generation.py
+```
+
+Finally all the descriptions provided in IKEA datset and generated captions are merged together to form initial set of captions using the method data_preprocessing/meta_creation.py
+
+```
+python3 python3 data_preprocessing/meta_creation.py
+```
+
+Initial captions are saved at data/annotations/annotations_ikea.json    
+ 
   
 
 ### Using mistral to generate better captions from the desciptions available.
@@ -53,15 +62,15 @@ Steps:
 
 ### Train, test, validation and standout split
 
-Splitted the dataset for training, testing, validation adn standout for model evalutions. The split can be done using data_preprocessing/data_split_into_train_test.pyvby specifying the size of test, val and standout dataset size.
-The training datset is uploaded on https://huggingface.co/datasets/nbadrinath/ikea_dataset_4.0
+Splitted the dataset for training, testing, validation adn standout for model evalutions. The split can be done using data_preprocessing/data_split_into_train_test.py by specifying the size of test, val and standout dataset size.
+The training datset is uploaded on https://huggingface.co/datasets/nbadrinath/ikea_dataset_5.0
 
 ### Fine tuning
 
-Scripts used for fine tuning is under finetune_scripts folder  
+Scripts used for fine tuning is under finetune_scripts folder. Set below environment variable for pushing fine tuned model to your huggingface account
 
-Set below environment variable for pushing fine tuned model to your huggingface account
 ```
 export HUGGING_FACE_USERNAME= <Your huggingface account username>
 ```
+
 Choose a script based on the need and execute on a GPU backed machine.
