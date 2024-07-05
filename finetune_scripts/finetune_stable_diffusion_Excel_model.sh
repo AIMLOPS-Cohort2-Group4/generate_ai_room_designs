@@ -56,5 +56,4 @@ accelerate launch train_text_to_image_sdxl.py \
   --output_dir=$OUTPUT_DIR \
   --push_to_hub  \
   --caption_column="desc" \
-  --mixed_precision="fp16"  \
-  --allow_tf32
+  --mixed_precision="fp16"
