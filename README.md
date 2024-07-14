@@ -78,6 +78,6 @@ The Application is hosted using Gradio on AWS and can be accesed using:
 * [Gradio app](http://a2b817c1cb5264e13afe8f0af04c76f9-1182829703.ap-south-1.elb.amazonaws.com/gradio/)
 * [GitHub Repository](https://github.com/AIMLOPS-Cohort2-Group4/generate_ai_room_designs_web)
 
-![alt text](data/sample_output1.jpeg)
+![alt text](https://github.com/AIMLOPS-Cohort2-Group4/generate_ai_room_designs/blob/feature-dataset_preparation/data/sample_output1.png)
 
 
