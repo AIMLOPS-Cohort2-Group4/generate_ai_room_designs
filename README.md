@@ -75,7 +75,7 @@ Fine tuned Stable Diffusion 1.5 without LORA:
 
 ### Sample Output
 The Application is hosted using Gradio on AWS and can be accesed using:
-* [Gradio app](http://a2b817c1cb5264e13afe8f0af04c76f9-1182829703.ap-south-1.elb.amazonaws.com/gradio/)<img src="readme_files/gradio.svg" alt="gradio" width=100>
+* [Gradio app](http://a2b817c1cb5264e13afe8f0af04c76f9-1182829703.ap-south-1.elb.amazonaws.com/gradio/)
 * [GitHub Repository](https://github.com/AIMLOPS-Cohort2-Group4/generate_ai_room_designs_web)
 
 
