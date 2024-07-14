@@ -60,24 +60,22 @@ Steps involved:
 
 ### Train, test, validation and standout split
 Splitted the dataset for training, testing, validation adn standout for model evalutions. The split can be done using `data_preprocessing/data_split_into_train_test.py` by specifying the size of test, val and standout dataset size.
-The training datset is uploaded on <img src="https://huggingface.co/front/assets/huggingface_logo.svg" alt="HuggingFace">[Dataset Card](https://huggingface.co/datasets/nbadrinath/ikea_dataset_5.0)
+The training datset is uploaded on 🤗 Hugging Face [Dataset Card](https://huggingface.co/datasets/nbadrinath/ikea_dataset_5.0)
 
 
 ### Fine Tuned Stable Diffusion Models
 Fine tuned Stable diffusion 1.5 model with LORA:
 * Used A100-80G GPU for fine tuning, the shell script can be accessed from `finetune_scripts/finetune_stable_diffusion_1.5_lora_model.sh`
-* the fine tuned model is stored at <img src="https://huggingface.co/front/assets/huggingface_logo.svg" alt="HuggingFace"> 
-[Model Card](https://huggingface.co/nbadrinath/sd1.5_lora_finetuning_030720240518)
+* the fine tuned model is stored at 🤗 Hugging Face [Model Card](https://huggingface.co/nbadrinath/sd1.5_lora_finetuning_030720240518)
 
 Fine tuned Stable Diffusion 1.5 without LORA:
 * Used A100-80G GPU for fine tuning, the shell script can be accessed from `finetune_scripts/finetune_stable_diffusion_1.5_model.sh`
-* the fine tuned model is stored at <img src="https://huggingface.co/front/assets/huggingface_logo.svg" alt="HuggingFace"> 
-[Model Card](https://huggingface.co/nbadrinath/ikea_room_designs_sd1.5_full_finetuning_030720240944)
+* the fine tuned model is stored at 🤗 Hugging Face [Model Card](https://huggingface.co/nbadrinath/ikea_room_designs_sd1.5_full_finetuning_030720240944)
 
 
 ### Sample Output
 The Application is hosted using Gradio on AWS and can be accesed using:
-* [Gradio app](http://a2b817c1cb5264e13afe8f0af04c76f9-1182829703.ap-south-1.elb.amazonaws.com/gradio/)
+* [Gradio app](http://a2b817c1cb5264e13afe8f0af04c76f9-1182829703.ap-south-1.elb.amazonaws.com/gradio/)<img src="readme_files/gradio.svg" alt="gradio" width=100>
 * [GitHub Repository](https://github.com/AIMLOPS-Cohort2-Group4/generate_ai_room_designs_web)
 
 
