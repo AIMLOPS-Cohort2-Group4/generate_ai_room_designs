@@ -73,11 +73,11 @@ Fine tuned Stable Diffusion 1.5 without LORA:
 * the fine tuned model is stored at 🤗 Hugging Face [Model Card](https://huggingface.co/nbadrinath/ikea_room_designs_sd1.5_full_finetuning_030720240944)
 
 
-### Sample Output
+### Application
 The Application is hosted using Gradio on AWS and can be accesed using:
 * [Gradio app](http://a2b817c1cb5264e13afe8f0af04c76f9-1182829703.ap-south-1.elb.amazonaws.com/gradio/)
 * [GitHub Repository](https://github.com/AIMLOPS-Cohort2-Group4/generate_ai_room_designs_web)
 
-
+![alt text](data/sample_output1.jpeg)
 
 
